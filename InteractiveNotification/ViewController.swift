@@ -12,6 +12,7 @@ import UserNotifications
 class ViewController: UIViewController {
 
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     }
     
     @objc func buttonAction() {
+        self.label.text = "Move to background to view notification in Notification Center"
         self.scheduleNotification()
     }
 
@@ -51,6 +53,7 @@ extension ViewController: UNUserNotificationCenterDelegate {
         notificationContent.subtitle = "Try out new notification"
         notificationContent.body = "New notifications support user interactions"
         notificationContent.categoryIdentifier = "com.app.notification"
+        notificationContent.userInfo = ["body": "New notifications support user interactions"]
         if let url = Bundle.main.url(forResource: "puppy", withExtension: "jpg") {
             let attachment =  try! UNNotificationAttachment(identifier: "image", url: url, options: [:])
             notificationContent.attachments = [attachment]
@@ -67,8 +70,16 @@ extension ViewController: UNUserNotificationCenterDelegate {
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        print(response)
+        self.label.text = (response.notification.request.content.userInfo["body"] as? String) ?? ""
         completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        self.label.text = ""
+        completionHandler(.alert)
     }
     
 }
