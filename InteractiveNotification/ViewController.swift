@@ -59,7 +59,7 @@ extension ViewController: UNUserNotificationCenterDelegate {
             notificationContent.attachments = [attachment]
         }
         
-        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "com.app.notification", content: notificationContent, trigger: notificationTrigger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if let err = error {
