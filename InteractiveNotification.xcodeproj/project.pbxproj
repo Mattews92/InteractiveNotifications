@@ -23,6 +23,12 @@
 		218F5D4D20CA55A600328976 /* InteractiveNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F5D4C20CA55A600328976 /* InteractiveNotificationTests.swift */; };
 		218F5D5820CA55A600328976 /* InteractiveNotificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F5D5720CA55A600328976 /* InteractiveNotificationUITests.swift */; };
 		21C47FD320CAD2CF008786FD /* puppy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21C47FD220CAD2CF008786FD /* puppy.jpg */; };
+		21F12BCD20DB93E900258815 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCC20DB93E900258815 /* FileManagerExtension.swift */; };
+		21F12BCE20DB99E300258815 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCC20DB93E900258815 /* FileManagerExtension.swift */; };
+		21F12BD020DBA6EF00258815 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCF20DBA6EF00258815 /* URLSessionExtension.swift */; };
+		21F12BD120DBA82400258815 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCF20DBA6EF00258815 /* URLSessionExtension.swift */; };
+		21F12BD220DBA82500258815 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCF20DBA6EF00258815 /* URLSessionExtension.swift */; };
+		21F12BD320DBA82800258815 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F12BCC20DB93E900258815 /* FileManagerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +103,8 @@
 		218F5D5720CA55A600328976 /* InteractiveNotificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveNotificationUITests.swift; sourceTree = "<group>"; };
 		218F5D5920CA55A600328976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C47FD220CAD2CF008786FD /* puppy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = puppy.jpg; path = Assets.xcassets/puppy.imageset/puppy.jpg; sourceTree = "<group>"; };
+		21F12BCC20DB93E900258815 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		21F12BCF20DBA6EF00258815 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				218F5D3620CA55A500328976 /* InteractiveNotification */,
-				2160416E20DA3FCD002C3582 /* NotificationService */,
-				2160418320DA3FE5002C3582 /* NotificationContent */,
 				218F5D4B20CA55A600328976 /* InteractiveNotificationTests */,
 				218F5D5620CA55A600328976 /* InteractiveNotificationUITests */,
 				2160417E20DA3FE5002C3582 /* Frameworks */,
@@ -197,8 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				2160419220DA5970002C3582 /* InteractiveNotification.entitlements */,
+				21F12BCB20DB7F8A00258815 /* Notification */,
 				218F5D3720CA55A500328976 /* AppDelegate.swift */,
-				2160419020DA4D39002C3582 /* NotificationDelegate.swift */,
 				218F5D3920CA55A500328976 /* ViewController.swift */,
 				218F5D3B20CA55A500328976 /* Main.storyboard */,
 				21C47FD220CAD2CF008786FD /* puppy.jpg */,
@@ -225,6 +231,18 @@
 				218F5D5920CA55A600328976 /* Info.plist */,
 			);
 			path = InteractiveNotificationUITests;
+			sourceTree = "<group>";
+		};
+		21F12BCB20DB7F8A00258815 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2160419020DA4D39002C3582 /* NotificationDelegate.swift */,
+				21F12BCF20DBA6EF00258815 /* URLSessionExtension.swift */,
+				21F12BCC20DB93E900258815 /* FileManagerExtension.swift */,
+				2160416E20DA3FCD002C3582 /* NotificationService */,
+				2160418320DA3FE5002C3582 /* NotificationContent */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +448,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2160417020DA3FCD002C3582 /* NotificationService.swift in Sources */,
+				21F12BCE20DB99E300258815 /* FileManagerExtension.swift in Sources */,
+				21F12BD120DBA82400258815 /* URLSessionExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +457,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F12BD220DBA82500258815 /* URLSessionExtension.swift in Sources */,
+				21F12BD320DBA82800258815 /* FileManagerExtension.swift in Sources */,
 				2160418520DA3FE5002C3582 /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +467,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F12BD020DBA6EF00258815 /* URLSessionExtension.swift in Sources */,
 				218F5D3A20CA55A500328976 /* ViewController.swift in Sources */,
+				21F12BCD20DB93E900258815 /* FileManagerExtension.swift in Sources */,
 				2160419120DA4D39002C3582 /* NotificationDelegate.swift in Sources */,
 				218F5D3820CA55A500328976 /* AppDelegate.swift in Sources */,
 			);
@@ -526,7 +550,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VCNU9JH4ZR;
-				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_FILE = InteractiveNotification/Notification/NotificationService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maritus.marinfo.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,7 +568,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VCNU9JH4ZR;
-				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_FILE = InteractiveNotification/Notification/NotificationService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maritus.marinfo.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -561,7 +585,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VCNU9JH4ZR;
-				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_FILE = InteractiveNotification/Notification/NotificationContent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maritus.marinfo.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,7 +602,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VCNU9JH4ZR;
-				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_FILE = InteractiveNotification/Notification/NotificationContent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maritus.marinfo.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";

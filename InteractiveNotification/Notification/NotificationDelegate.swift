@@ -10,6 +10,20 @@ import Foundation
 import UserNotifications
 import UserNotificationsUI
 
+/*
+ * The notification payload must conform exactly to the following JSON
+{
+    "aps":{
+        "alert":"Custom Push",
+        "badge":1,
+        "sound":"default",
+        "category":"CustomNotification",
+        "mutable-content":"1"
+    },
+    "imageUrl":"https://res.cloudinary.com/demo/image/upload/sample.jpg"
+}
+*/
+
 class NotificationDelegate: NSObject {
     
     static let sharedInstance = NotificationDelegate()
@@ -18,9 +32,9 @@ class NotificationDelegate: NSObject {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { (granted, error) in
                 if granted {
-                    let openAction = UNNotificationAction(identifier: "OpenAction", title: "Open", options: .foreground)
-                    let editAction = UNNotificationAction(identifier: "EditAction", title: "Edit", options: .foreground)
-                    let category = UNNotificationCategory(identifier: "CustomRemoteNotification", actions: [openAction, editAction], intentIdentifiers: [], options: [])
+                    let reply = UNTextInputNotificationAction(identifier: "text", title: "Reply", options: [], textInputButtonTitle: "Send", textInputPlaceholder: "Message")
+                    let open = UNNotificationAction(identifier: "OpenAction", title: "Open", options: .foreground)
+                    let category = UNNotificationCategory(identifier: "CustomNotification", actions: [reply, open], intentIdentifiers: [], options: [])
                     UNUserNotificationCenter.current().setNotificationCategories(Set([category]))
                 }
                 UNUserNotificationCenter.current().delegate = self
@@ -51,5 +65,6 @@ extension NotificationDelegate: UNUserNotificationCenterDelegate {
         default:
             print(response.actionIdentifier)
         }
-        completionHandler()    }
+        completionHandler()
+    }
 }

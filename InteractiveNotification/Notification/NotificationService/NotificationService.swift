@@ -18,9 +18,21 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
         if let bestAttemptContent = bestAttemptContent {
-            // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+//            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
             
+            guard let imageUrl = request.content.userInfo["imageUrl"] as? String else {
+                contentHandler(bestAttemptContent)
+                return
+            }
+            
+            // Download the image from URL and save it to Disk
+            // Create a UNNotificationAttachment with the saved file
+            // Add the UNNotificationAttachment to the BestAttemptContent notification request
+            if let imageFileUrl = FileManager.saveImageFrom(urlString: imageUrl) {
+                if let attachment = try? UNNotificationAttachment(identifier: "notificationImage", url: imageFileUrl, options: nil) {
+                    bestAttemptContent.attachments = [attachment]
+                }
+            }
             contentHandler(bestAttemptContent)
         }
     }
