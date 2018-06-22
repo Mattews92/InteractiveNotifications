@@ -10,10 +10,12 @@ The <b>InteractiveNotifications</b> project provides interactive Push Notificati
 2. Set up interactive notifications in your project.
 <br>
 In the <i><b>YourProject.xcodeproj</b></i> file, add new targets for the application extensions <b>NotificationServiceExtension</b> and  <b>NotificationContentExtension</b>. Name the targets <i>"NotificationService"</i> and <i>"NotificationContent"</i> respectievely and activate them in the next popup.
-<br><img src="/appextension.png"><br>
+<br><br><img src="/appextension.png"><br>
 Now in the project navigator replace the <b><i>NotificationServiceExtension</i></b> directory with the <b><i>NotificationsService directory of InteractiveNotifications</i></b> project. Similarly replace <b><i>NotificationContentExtension</i></b> with the <b><i>NotificationContent directory in the InteractiveNotifications</i></b> project.
 <br><br>
-Add the <b><i>NotificationDelegate.swift</b></i>, <b><i>URLSessionExtension.swift</b></i> and <b><i>FileManagerExtension.swift</b></i> files to the project and add NotificationService and NotificationContent in the target membership of aall three files.
+Add the <b><i>NotificationDelegate.swift</i></b>, <b><i>URLSessionExtension.swift</i></b> and <b><i>FileManagerExtension.swift</i></b> files to the project and add <i>NotificationService</i> and <i>NotificationContent</i> in the target membership of all three files.
+<br><b>
+The NotificationService and NotificationContent app targets need seperate bundle URLs, mobile provisions and linked certificates to sign them.</b>
 
 <h2> Push Notification Payload </h2>
 <i>
