@@ -14,8 +14,8 @@ In the <i><b>YourProject.xcodeproj</b></i> file, add new targets for the applica
 Now in the project navigator replace the <b><i>NotificationServiceExtension</i></b> directory with the <b><i>NotificationsService directory of InteractiveNotifications</i></b> project. Similarly replace <b><i>NotificationContentExtension</i></b> with the <b><i>NotificationContent directory in the InteractiveNotifications</i></b> project.
 <br><br>
 Add the <b><i>NotificationDelegate.swift</i></b>, <b><i>URLSessionExtension.swift</i></b> and <b><i>FileManagerExtension.swift</i></b> files to the project and add <i>NotificationService</i> and <i>NotificationContent</i> in the target membership of all three files.
-<br><b>
-The NotificationService and NotificationContent app targets need seperate bundle URLs, mobile provisions and linked certificates to sign them.</b>
+<br><br>
+<b>The NotificationService and NotificationContent app targets need seperate bundle URLs, mobile provisions and linked certificates to sign them.</b>
 
 <h2> Push Notification Payload </h2>
 <i>
