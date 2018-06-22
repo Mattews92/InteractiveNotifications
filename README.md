@@ -10,6 +10,7 @@ The <b>InteractiveNotifications</b> project provides interactive Push Notificati
 2. Set up interactive notifications in your project.
 <br>
 In the <i><b>YourProject.xcodeproj</b></i> file, add new targets for the application extensions <b>NotificationServiceExtension</b> and  <b>NotificationContentExtension</b>. Name the targets <i>"NotificationService"</i> and <i>"NotificationContent"</i> respectievely and activate them in the next popup.
+<br><img src="/appextension.png"><br>
 Now in the project navigator replace the <b><i>NotificationServiceExtension</i></b> directory with the <b><i>NotificationsService directory of InteractiveNotifications</i></b> project. Similarly replace <b><i>NotificationContentExtension</i></b> with the <b><i>NotificationContent directory in the InteractiveNotifications</i></b> project.
 <br><br>
 Add the <b><i>NotificationDelegate.swift</b></i>, <b><i>URLSessionExtension.swift</b></i> and <b><i>FileManagerExtension.swift</b></i> files to the project and add NotificationService and NotificationContent in the target membership of aall three files.
@@ -24,7 +25,7 @@ Add the <b><i>NotificationDelegate.swift</b></i>, <b><i>URLSessionExtension.swif
 <br>&nbsp&nbsp&nbsp       "category":"CustomNotification",
 <br>&nbsp&nbsp&nbsp        "mutable-content":"1"
 <br>&nbsp&nbsp&nbsp    },
-<br>&nbsp&nbsp   "imageUrl":"https://res.cloudinary.com/demo/image/upload/sample.jpg"
+<br>&nbsp&nbsp   "imageUrl":"your image url"
 <br>&nbsp}
 </i>
 <br><br>
