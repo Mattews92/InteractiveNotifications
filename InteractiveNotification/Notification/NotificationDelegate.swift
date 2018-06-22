@@ -28,6 +28,7 @@ class NotificationDelegate: NSObject {
     
     static let sharedInstance = NotificationDelegate()
     
+    /// Configures notification settings and registers for remote notifications
     func configureNotification() {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { (granted, error) in
@@ -50,12 +51,25 @@ class NotificationDelegate: NSObject {
     }
 }
 
+// MARK: - UNUserNotificationCenterDelegate
 extension NotificationDelegate: UNUserNotificationCenterDelegate {
     
+    /// Delegate invoked when a notification is recieved while the app is foreground
+    ///
+    /// - Parameters:
+    ///   - center: UNUserNotificationCenter instance
+    ///   - notification: notification received
+    ///   - completionHandler: completion handler determines how to present the received notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
     }
     
+    /// Delegate invoked when the app is opened from a notification
+    ///
+    /// - Parameters:
+    ///   - center: UNUserNotificationCenter instance
+    ///   - response: notification response
+    ///   - completionHandler: completion handler
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:

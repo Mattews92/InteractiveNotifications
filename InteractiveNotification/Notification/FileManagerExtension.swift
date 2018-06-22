@@ -10,6 +10,10 @@ import Foundation
 
 extension FileManager {
     
+    /// Saves an image from a url to the disk
+    ///
+    /// - Parameter urlString: url of image
+    /// - Returns: file path of the saved image
     static func saveImageFrom(urlString: String) -> URL? {
         if let url = URL(string: urlString) {
             guard let imageData = try? Data(contentsOf: url) else {

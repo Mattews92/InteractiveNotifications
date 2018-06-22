@@ -29,11 +29,12 @@ class ViewController: UIViewController {
         self.label.text = "Move to background to view notification in Notification Center"
         self.scheduleNotification()
     }
-
 }
 
-extension ViewController: UNUserNotificationCenterDelegate {
+// MARK: - Schedule Local Notifications
+extension ViewController {
     
+    /// Request the user to authorize the notifications
     func authorizeNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if success {
@@ -41,6 +42,8 @@ extension ViewController: UNUserNotificationCenterDelegate {
         }
     }
     
+    /// Scheules a local notification with a textinput, a edit button and a delete button
+    /// Local notification is scheduled to fire after 1s
     func scheduleNotification() {
         let reply = UNTextInputNotificationAction(identifier: "text", title: "Reply", options: [], textInputButtonTitle: "Send", textInputPlaceholder: "Message")
         let edit = UNNotificationAction(identifier: "edit", title: "Edit", options: .foreground)
@@ -67,19 +70,34 @@ extension ViewController: UNUserNotificationCenterDelegate {
             }
         }
     }
+}
+
+// MARK: - UNUserNotificationCenterDelegate
+extension ViewController: UNUserNotificationCenterDelegate {
     
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        self.label.text = (response.notification.request.content.userInfo["body"] as? String) ?? ""
-        completionHandler()
-    }
-    
+    /// Delegate invoked when a notification is recieved while the app is foreground
+    ///
+    /// - Parameters:
+    ///   - center: UNUserNotificationCenter instance
+    ///   - notification: notification received
+    ///   - completionHandler: completion handler determines how to present the received notification
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
         self.label.text = ""
         completionHandler(.alert)
+    }
+    
+    /// Delegate invoked when the app is opened from a notification
+    ///
+    /// - Parameters:
+    ///   - center: UNUserNotificationCenter instance
+    ///   - response: notification response
+    ///   - completionHandler: completion handler
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        self.label.text = (response.notification.request.content.userInfo["body"] as? String) ?? ""
+        completionHandler()
     }
     
 }
