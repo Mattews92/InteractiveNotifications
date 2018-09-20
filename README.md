@@ -53,4 +53,5 @@ Interactive local notifications are configured locally in the <b><i>ViewControll
 <h2>More frameworks</h2>
 <ul>
 <li> Slidermenu for Swift projects <a href=https://github.com/Mattews92/SliderMenu>here</a> </li>
+<li> Boiler plate for swift projects <a href=https://github.com/Mattews92/SwiftBoilerPlate>here</a> </li>
 </ul>
